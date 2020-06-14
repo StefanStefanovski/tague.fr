@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         switch (menuItem.getItemId()){
             case R.id.journauxItem:
                 FragmentClass = JournauxFragment.class;
-                toolbar.setBackgroundColor(Color.parseColor("#07E3CD"));
+                toolbar.setBackgroundColor(Color.parseColor("#1E9EB1"));
                 break;
             case R.id.sportsItem:
                 FragmentClass = SportsFragment.class;
