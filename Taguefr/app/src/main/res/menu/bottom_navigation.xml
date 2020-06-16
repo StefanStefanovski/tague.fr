@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ALaUne"
+        android:title="À la une"
+        android:icon="@drawable/a_la_une"
+        />
+    <item android:title="Culture"
+        android:icon="@drawable/culture"
+        android:id="@+id/culture"
+        />
+    <item android:id="@+id/Politique"
+        android:title="Politique"
+        android:icon="@drawable/poltique"
+        />
+    <item
+        android:title="France"
+        android:id="@+id/France"
+        android:icon="@drawable/france"
+        />
+</menu>

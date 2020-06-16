@@ -11,17 +11,19 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="200dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img"
+            />
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/gradient"
             />
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/imageView"
-            />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

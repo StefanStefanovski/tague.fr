@@ -37,6 +37,18 @@ public class MainActivity extends AppCompatActivity {
 
         nvDrawer = (NavigationView)findViewById(R.id.nvView);
         setupDrawerContent(nvDrawer);
+        Class FragmentClass = JournauxFragment.class;
+        Fragment fragment = null;
+        try {
+            fragment = (Fragment)FragmentClass.newInstance();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
 
     }
 
