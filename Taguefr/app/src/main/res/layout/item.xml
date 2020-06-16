@@ -7,10 +7,14 @@
     app:cardCornerRadius="4dp"
     android:padding="10dp"
     android:layout_margin="10dp">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="200dp"
+        android:id="@+id/frameLayout">
 
         <ImageView
             android:layout_width="match_parent"
@@ -55,4 +59,23 @@
 
          </LinearLayout>
     </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/articles_similaires"
+                android:id="@+id/articles"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Articles similaires"
+                android:textColor="#00C853"
+                android:layout_gravity="center"
+                android:id="@+id/articlesTextView"
+                />
+        </LinearLayout>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>
