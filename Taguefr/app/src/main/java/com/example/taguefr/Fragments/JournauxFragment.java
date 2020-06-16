@@ -106,14 +106,15 @@ public class JournauxFragment extends Fragment {
                 ArrayList<Item> itemList = new ArrayList<>();
                 switch (menuItem.getItemId()){
                     case R.id.ALaUne:
-                        //ArrayList<Item> itemList = new ArrayList<>();
+                       /* //ArrayList<Item> itemList = new ArrayList<>();
                         itemList.add(new Item(R.drawable.test2, "Régionales 2021. Emmanuel Macron « ouvre le débat » d’un report après la présidentielle", "Tague.fr", "14/06/2020"));
                         itemList.add(new Item(R.drawable.test3, "Donald Trump annonce le retrait de près de 10 000 soldats américains d’Allemagne", "Tague.fr2", "15/06/2020"));
                         itemList.add(new Item(R.drawable.test4, "Municipales 2020 : le second tour suspendu à l’appréciation du Conseil constitutionnel", "Tague.fr23", "15/07/2020"));
                         itemList.add(new Item(R.drawable.coronatague, "Coronavirus: Le second tour des municipales reporté en Guyane", "Tague.fr23", "15/07/2020"));
                         itemList.add(new Item(R.drawable.macedonia, "journaux Exemple 3", "Tague.fr23", "15/07/2020"));
 
-                        initializeRecycleView(rootView, itemList);
+                        initializeRecycleView(rootView, itemList);*/
+                       setItem(rootView);
                         OnArticleClick();
                         break;
                     case R.id.culture:
