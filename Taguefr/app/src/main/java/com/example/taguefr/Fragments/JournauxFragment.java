@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -83,6 +85,14 @@ public class JournauxFragment extends Fragment {
             @Override
             public void articlesSimilairesOnClick(int position) {
                 Toast.makeText(getActivity(),"Articles similaires Clicked: "+ position+"", Toast.LENGTH_SHORT).show();
+
+                Fragment newFragment = new ArticlesSimilairesFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                transaction.replace(R.id.flContent, newFragment);
+                transaction.addToBackStack(null);
+
+                transaction.commit();
             }
         });
     }

@@ -13,7 +13,7 @@
         android:orientation="vertical">
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="170dp"
         android:id="@+id/frameLayout">
 
         <ImageView
@@ -28,6 +28,10 @@
             android:layout_height="match_parent"
             android:background="@drawable/gradient"
             />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,6 +40,13 @@
             android:fontFamily="@font/g_bold"
             android:text="TITLE"
             android:textColor="#FFFFFF"/>
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Conspiracy theory Ghandalf is making progress towards mordor with Aragorn dead..."
+            android:textColor="#D4DCDB"
+            android:layout_gravity="right"/>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
