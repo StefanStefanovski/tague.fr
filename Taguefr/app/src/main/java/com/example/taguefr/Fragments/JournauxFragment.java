@@ -20,17 +20,32 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.taguefr.Item;
 import com.example.taguefr.ItemAdapter;
+import com.example.taguefr.ItemArticles;
+import com.example.taguefr.ItemInfo;
 import com.example.taguefr.R;
+import com.example.taguefr.RetrofitInterface;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class JournauxFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private ItemAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-/*
+
+    private Retrofit retrofit;
+    private RetrofitInterface retrofitInterface;
+    private String BASE_URL = "http://192.168.43.13:3000";
+
+    /*
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,15 +62,45 @@ public class JournauxFragment extends Fragment {
 
     }
 
-    public void setItem (View rootView){
-        ArrayList<Item> itemList = new ArrayList<>();
+    public void setItem (final View rootView){
+
+        final ArrayList<Item> itemList = new ArrayList<>();
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        retrofitInterface = retrofit.create(RetrofitInterface.class);
+
+        HashMap<String, String> map = new HashMap<>();
+        Call<ItemInfo> call = retrofitInterface.executeGetItem(map);
+        call.enqueue(new Callback<ItemInfo>() {
+            @Override
+            public void onResponse(Call<ItemInfo> call, Response<ItemInfo> response) {
+                ItemInfo itemInfo = response.body();
+
+                if(response.code() == 200){
+                    itemList.add(new Item(R.drawable.test2, itemInfo.getTitre(), itemInfo.getSource(), itemInfo.getDate()));
+                    initializeRecycleView(rootView, itemList);
+                    OnArticleClick();
+                } else if (response.code() == 404){
+                    Toast.makeText(rootView.getContext(), "Failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ItemInfo> call, Throwable t) {
+
+            }
+        });
+/*
         itemList.add(new Item(R.drawable.test2, "Régionales 2021. Emmanuel Macron « ouvre le débat » d’un report après la présidentielle", "Google.com", "14/06/2020"));
         itemList.add(new Item(R.drawable.test3, "Donald Trump annonce le retrait de près de 10 000 soldats américains d’Allemagne", "Wikipedia.org", "15/06/2020"));
         itemList.add(new Item(R.drawable.test4, "Municipales 2020 : le second tour suspendu à l’appréciation du Conseil constitutionnel", "Youtube.com", "15/07/2020"));
         itemList.add(new Item(R.drawable.coronatague, "Coronavirus: Le second tour des municipales reporté en Guyane", "Tague.fr", "15/07/2020"));
-        itemList.add(new Item(R.drawable.macedonia, "journaux Exemple 3", "Google.com", "15/07/2020"));
-        initializeRecycleView(rootView, itemList);
-        OnArticleClick();
+        itemList.add(new Item(R.drawable.macedonia, "journaux Exemple 3", "Google.com", "15/07/2020"));*/
+
 
     }
 
