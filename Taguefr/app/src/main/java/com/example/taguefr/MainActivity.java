@@ -14,9 +14,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.taguefr.Fragments.EvenmentsFragment;
 import com.example.taguefr.Fragments.JournauxFragment;
 import com.example.taguefr.Fragments.MagazinesFragment;
 import com.example.taguefr.Fragments.SportsFragment;
+import com.example.taguefr.Fragments.TweetFragment;
+import com.example.taguefr.Fragments.VideosFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -104,6 +107,15 @@ public class MainActivity extends AppCompatActivity {
             case R.id.magazinesItem:
                 FragmentClass = MagazinesFragment.class;
                // toolbar.setBackgroundColor(Color.parseColor("#A7AFAE"));
+                break;
+            case R.id.VideosItem:
+                FragmentClass = VideosFragment.class;
+                break;
+            case R.id.evenementsItem:
+                FragmentClass = EvenmentsFragment.class;
+                break;
+            case R.id.tweetItem:
+                FragmentClass = TweetFragment.class;
                 break;
             default:
                 FragmentClass = JournauxFragment.class;

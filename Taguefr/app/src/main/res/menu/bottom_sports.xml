@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ALaUneSports"
+        android:title="À la une"
+        android:icon="@drawable/a_la_une"
+        />
+    <item
+        android:id="@+id/FootballSports"
+        android:title="Football"
+        android:icon="@drawable/culture"
+        />
+    <item
+        android:id="@+id/GolfSports"
+        android:title="Golf"
+        android:icon="@drawable/poltique"
+        />
+    <item
+        android:id="@+id/RugbySports"
+        android:title="Rugby"
+        android:icon="@drawable/france"
+        />
+    <item
+        android:id="@+id/PlusSports"
+        android:title="Plus"
+        android:icon="@drawable/plus"
+        />
+</menu>

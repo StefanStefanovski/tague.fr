@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ALaUneEvenement"
+        android:title="À la une"
+        android:icon="@drawable/a_la_une"
+        />
+    <item
+        android:id="@+id/DemainEvenement"
+        android:title="Demain"
+        android:icon="@drawable/culture"
+        />
+    <item
+        android:id="@+id/semaineEvenement"
+        android:title="Dans une semaine"
+        android:icon="@drawable/poltique"
+        />
+    <item
+        android:id="@+id/ProchainemenntEvenement"
+        android:title="Prochainement"
+        android:icon="@drawable/france"
+        />
+</menu>

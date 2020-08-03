@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/CLevenment"
+    android:id="@+id/CLVideos"
     android:orientation="vertical">
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:id="@+id/bottomMagazines"
-        app:menu="@menu/bottom_magazines"
+        android:id="@+id/bottom_nav_videos"
+        app:menu="@menu/bottom_videos"
         android:layout_gravity="bottom"
         android:background="#FFFFFF"
         app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="vertical"
-        android:id="@+id/recycleViewMagazines"
+        android:id="@+id/recycleViewVideos"
         android:padding="4dp"
         />
 

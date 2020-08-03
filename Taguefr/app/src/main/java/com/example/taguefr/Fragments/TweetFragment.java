@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 import retrofit2.Retrofit;
 
-public class MagazinesFragment extends Fragment {
+public class TweetFragment extends Fragment {
     private RecyclerView recyclerView;
     private ItemAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -39,7 +39,7 @@ public class MagazinesFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.magazines_fragment, container, false);
+        View rootView = inflater.inflate(R.layout.tweet_fragment, container, false);
         return rootView;
     }
 
@@ -50,7 +50,7 @@ public class MagazinesFragment extends Fragment {
     }
     public void initializeRecycleView(View rootView, ArrayList<Item> itemList){
 
-        recyclerView = (RecyclerView)rootView.findViewById(R.id.recycleViewMagazines);
+        recyclerView = (RecyclerView)rootView.findViewById(R.id.recycleViewTweet);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getActivity());
         adapter = new ItemAdapter(itemList);
@@ -85,7 +85,7 @@ public class MagazinesFragment extends Fragment {
         });
     }
     public void bottmNavOnclick(final View rootView){
-        BottomNavigationView bottomNavigationView = (BottomNavigationView)rootView.findViewById(R.id.bottomMagazines);
+        BottomNavigationView bottomNavigationView = (BottomNavigationView)rootView.findViewById(R.id.bottom_nav_tweet);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

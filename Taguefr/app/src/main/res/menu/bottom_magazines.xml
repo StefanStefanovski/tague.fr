@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ALaUneMagazine"
+        android:title="À la une"
+        android:icon="@drawable/a_la_une"
+        />
+    <item
+        android:id="@+id/SocieteMagazine"
+        android:title="Société"
+        android:icon="@drawable/culture"
+        />
+    <item
+        android:id="@+id/HighTechsMagazines"
+        android:title="High-Techs"
+        android:icon="@drawable/poltique"
+        />
+    <item
+        android:id="@+id/CinemaMagazine"
+        android:title="Cinéma"
+        android:icon="@drawable/france"
+        />
+    <item
+        android:id="@+id/PlusMagazines"
+        android:title="Plus"
+        android:icon="@drawable/plus"
+        />
+</menu>

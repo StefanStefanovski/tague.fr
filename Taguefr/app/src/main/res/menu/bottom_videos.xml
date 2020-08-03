@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ALaUneVideos"
+        android:title="À la une"
+        android:icon="@drawable/a_la_une"
+        />
+    <item
+        android:id="@+id/MusiqueVideos"
+        android:title="Musique"
+        android:icon="@drawable/culture"
+        />
+    <item
+        android:id="@+id/JeuxVideos"
+        android:title="Jeux Vidéos"
+        android:icon="@drawable/poltique"
+        />
+    <item
+        android:id="@+id/LifeStyleVideos"
+        android:title="Life Style"
+        android:icon="@drawable/france"
+        />
+    <item
+        android:id="@+id/SportsVideos"
+        android:title="Sports"
+        android:icon="@drawable/plus"
+        />
+</menu>

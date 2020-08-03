@@ -10,6 +10,16 @@
         <item android:id="@+id/magazinesItem"
             android:title="Magazines"
             android:icon="@drawable/magazines"/>
+        <item android:id="@+id/VideosItem"
+            android:title="Vidéos"
+            android:icon="@drawable/video"/>
+        <item android:id="@+id/evenementsItem"
+            android:title="Les événements"
+            android:icon="@drawable/evenments"/>
+        <item android:id="@+id/tweetItem"
+            android:title="Tweets"
+            android:icon="@drawable/twitter"
+            />
     </group>
 
 </menu>
