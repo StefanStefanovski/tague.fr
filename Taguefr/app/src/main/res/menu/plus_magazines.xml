@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/MusiqueMagazines"
+        android:title="Musique"
+        android:icon="@drawable/plus"
+        />
+    <item android:id="@+id/SciencesMagazines"
+        android:title="Sciences"
+        android:icon="@drawable/plus"
+        />
+    <item android:id="@+id/LivresMagazines"
+        android:title="Livres"
+        android:icon="@drawable/plus"
+        />
+    <item android:id="@+id/AutomobilesMagazines"
+        android:title="Automobiles"
+        android:icon="@drawable/plus"
+        />
+</menu>

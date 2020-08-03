@@ -11,8 +11,8 @@
         android:icon="@drawable/culture"
         />
     <item
-        android:id="@+id/GolfSports"
-        android:title="Golf"
+        android:id="@+id/BasketballSports"
+        android:title="Basketball"
         android:icon="@drawable/poltique"
         />
     <item

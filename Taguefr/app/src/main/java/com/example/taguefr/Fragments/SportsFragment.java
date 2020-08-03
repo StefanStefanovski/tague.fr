@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -27,7 +29,7 @@ import java.util.ArrayList;
 
 import retrofit2.Retrofit;
 
-public class SportsFragment extends Fragment {
+public class SportsFragment extends Fragment implements PopupMenu.OnMenuItemClickListener {
     private RecyclerView recyclerView;
     private ItemAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -40,6 +42,7 @@ public class SportsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.sports_fragment, container, false);
+        bottmNavOnclick(rootView);
         return rootView;
     }
 
@@ -85,14 +88,44 @@ public class SportsFragment extends Fragment {
         });
     }
     public void bottmNavOnclick(final View rootView){
-        BottomNavigationView bottomNavigationView = (BottomNavigationView)rootView.findViewById(R.id.bottomSports);
+        final BottomNavigationView bottomNavigationView = (BottomNavigationView)rootView.findViewById(R.id.bottomSports);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 ArrayList<Item> itemList = new ArrayList<>();
+                switch (menuItem.getItemId()){
+                    case R.id.ALaUneSports:
+                        Toast.makeText(rootView.getContext(), "clicked sports a la une", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.FootballSports:
+                        Toast.makeText(rootView.getContext(), "clicked sports a la football", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.BasketballSports:
+                        Toast.makeText(rootView.getContext(), "clicked sports a la basket", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.RugbySports:
+                        Toast.makeText(rootView.getContext(), "clicked sports a la basket", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.PlusSports:
+                        PopupMenu popup = new PopupMenu(rootView.getContext(), bottomNavigationView);
+                        MenuInflater inflater = popup.getMenuInflater();
+                        inflater.inflate(R.menu.plus_sports, popup.getMenu());
+                        popup.show();
 
+                        break;
+                }
                 return true;
             }
         });
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        /*switch (item.getItemId()){
+            case R.id.GolfSports:
+                Toast.makeText(, "", Toast.LENGTH_SHORT).show();
+        }*/
+        
+        return true;
     }
 }

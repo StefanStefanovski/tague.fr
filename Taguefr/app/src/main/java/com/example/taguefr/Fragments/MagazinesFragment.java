@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -27,7 +29,7 @@ import java.util.ArrayList;
 
 import retrofit2.Retrofit;
 
-public class MagazinesFragment extends Fragment {
+public class MagazinesFragment extends Fragment implements PopupMenu.OnMenuItemClickListener {
     private RecyclerView recyclerView;
     private ItemAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -40,6 +42,7 @@ public class MagazinesFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.magazines_fragment, container, false);
+        bottmNavOnclick(rootView);
         return rootView;
     }
 
@@ -85,14 +88,33 @@ public class MagazinesFragment extends Fragment {
         });
     }
     public void bottmNavOnclick(final View rootView){
-        BottomNavigationView bottomNavigationView = (BottomNavigationView)rootView.findViewById(R.id.bottomMagazines);
+        final BottomNavigationView bottomNavigationView = (BottomNavigationView)rootView.findViewById(R.id.bottomMagazines);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 ArrayList<Item> itemList = new ArrayList<>();
-
+                switch (menuItem.getItemId()){
+                    case R.id.ALaUneMagazine:
+                        break;
+                    case R.id.SocieteMagazine:
+                        break;
+                    case R.id.HighTechsMagazines:
+                        break;
+                    case R.id.CinemaMagazine:
+                        break;
+                    case R.id.PlusMagazines:
+                        PopupMenu popupMenu = new PopupMenu(rootView.getContext(), bottomNavigationView);
+                        MenuInflater inflater = popupMenu.getMenuInflater();
+                        inflater.inflate(R.menu.plus_magazines, popupMenu.getMenu());
+                        popupMenu.show();
+                }
                 return true;
             }
         });
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        return false;
     }
 }
