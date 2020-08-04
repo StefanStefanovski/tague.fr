@@ -11,15 +11,49 @@ mongoClient.connect(url, (err, db) =>{
         console.log('error while connecting to database')
     } else{
         const mydb = db.db('TagueFr')
+        mydb.listCollections().toArray(function(error, collInfo){
+            if(error){
+                console.log(error)
+            } else{
+                console.log(collInfo)
+            }
+            
+        })
         const itemCollection = mydb.collection('ItemCollection')
         console.log('table crée')
 
         app.post('/item', (req, res) => {
+
+            var resultArray = []
+            var cursor = itemCollection.find();
+            cursor.forEach(function(doc,error) {
+                if(error != null){
+                    res.status(404).send()
+                    console.log(error)
+                } else {
+                     resultArray.push(doc);
+                     const obj = {
+                         titre: doc.titre,
+                         source: doc.source,
+                         date: doc.date
+                     }
+                     console.log(doc)
+
+                }
+            }, function() {
+                const toSend = {
+                    data: resultArray
+                }
+                res.status(200).send(JSON.stringify(toSend))
+                console.log("Rsult Array : \n", toSend)
+
+            })
+            
+/*
             const query = {
-                titre: "TITRE TEST MONGO"
             }
-            itemCollection.findOne(query, (err, result) => {
-                
+            itemCollection.find(query, (err, result) => {
+            
                 const obj = {
                     titre: result.titre,
                     source: result.source,
@@ -29,7 +63,7 @@ mongoClient.connect(url, (err, db) =>{
                 if(result != null){
                     res.status(200).send(JSON.stringify(obj))
                 }
-            })
+            })*/
         })
     }
 })

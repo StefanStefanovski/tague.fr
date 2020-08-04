@@ -9,5 +9,5 @@ import retrofit2.http.POST;
 public interface RetrofitInterface  {
 
     @POST("/item")
-    Call<ItemInfo> executeGetItem(@Body HashMap<String, String> map);
+    Call<ListofItems> executeGetItem(@Body HashMap<String, String> map);
 }

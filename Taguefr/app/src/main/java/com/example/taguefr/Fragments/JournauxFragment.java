@@ -12,7 +12,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,14 +19,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.taguefr.Item;
 import com.example.taguefr.ItemAdapter;
-import com.example.taguefr.ItemArticles;
 import com.example.taguefr.ItemInfo;
+import com.example.taguefr.ListofItems;
 import com.example.taguefr.R;
 import com.example.taguefr.RetrofitInterface;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -74,14 +74,24 @@ public class JournauxFragment extends Fragment {
         retrofitInterface = retrofit.create(RetrofitInterface.class);
 
         HashMap<String, String> map = new HashMap<>();
-        Call<ItemInfo> call = retrofitInterface.executeGetItem(map);
-        call.enqueue(new Callback<ItemInfo>() {
+        Call<ListofItems> call = retrofitInterface.executeGetItem(map);
+        call.enqueue(new Callback<ListofItems>() {
             @Override
-            public void onResponse(Call<ItemInfo> call, Response<ItemInfo> response) {
-                ItemInfo itemInfo = response.body();
+            public void onResponse(Call<ListofItems> call, Response<ListofItems> response) {
+                ListofItems ll = response.body();
+
+
 
                 if(response.code() == 200){
-                    itemList.add(new Item(R.drawable.test2, itemInfo.getTitre(), itemInfo.getSource(), itemInfo.getDate()));
+                    int i=0;
+
+                    while (ll.getData().size() > i){
+                        HashMap<String, String> article = new HashMap<>();
+                        article = (HashMap<String, String>) ll.getData().get(i);
+                        itemList.add(new Item(R.drawable.test2, article.get("titre"), article.get("source"), article.get("date")));
+                        i++;
+                    }
+                    //i
                     initializeRecycleView(rootView, itemList);
                     OnArticleClick();
                 } else if (response.code() == 404){
@@ -90,7 +100,7 @@ public class JournauxFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<ItemInfo> call, Throwable t) {
+            public void onFailure(Call<ListofItems> call, Throwable t) {
 
             }
         });
