@@ -1,24 +1,24 @@
-const express = require('express')
-const { json } = require('express')
-const app = express()
-const mongoClient = require('mongodb').MongoClient
-const url = "mongodb://localhost:27017"
+const express = require("express");
+const { json } = require("express");
+const app = express();
+const mongoClient = require("mongodb").MongoClient;
+const url = "mongodb://92.222.78.212:27017";
+//const url = "mongodb://localhost:27017"
 
-app.use(express.json())
+app.use(express.json());
 
-mongoClient.connect(url, (err, db) =>{
-    if(err){
-        console.log('error while connecting to database')
-    } else{
-        const mydb = db.db('TagueFr')
-        mydb.listCollections().toArray(function(error, collInfo){
-            if(error){
-                console.log(error)
-            } else{
-                console.log(collInfo)
-            }
-            
-        })
+mongoClient.connect(url, (err, db) => {
+  if (err) {
+    console.log("error while connecting to database");
+  } else {
+    const mydb = db.db("france");
+    mydb.listCollections().toArray(function (error, collInfo) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(collInfo);
+      }
+    }); /*
         const itemCollection = mydb.collection('ItemCollection')
         console.log('table crée')
 
@@ -49,7 +49,7 @@ mongoClient.connect(url, (err, db) =>{
 
             })
             
-/*
+
             const query = {
             }
             itemCollection.find(query, (err, result) => {
@@ -63,10 +63,10 @@ mongoClient.connect(url, (err, db) =>{
                 if(result != null){
                     res.status(200).send(JSON.stringify(obj))
                 }
-            })*/
-        })
-    }
-})
+            })
+        })*/
+  }
+});
 app.listen(3000, () => {
-    console.log('listening on port 3000')
-})
+  console.log("listening on port 3000");
+});

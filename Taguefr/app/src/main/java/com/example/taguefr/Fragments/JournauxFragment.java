@@ -25,6 +25,7 @@ import com.example.taguefr.R;
 import com.example.taguefr.RetrofitInterface;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -88,7 +89,8 @@ public class JournauxFragment extends Fragment {
                     while (ll.getData().size() > i){
                         HashMap<String, String> article = new HashMap<>();
                         article = (HashMap<String, String>) ll.getData().get(i);
-                        itemList.add(new Item(R.drawable.test2, article.get("titre"), article.get("source"), article.get("date")));
+                        
+                        itemList.add(new Item(, article.get("titre"), article.get("source"), article.get("date")));
                         i++;
                     }
                     //i
